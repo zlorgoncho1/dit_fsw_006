@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main-content %}
+<section id="welcome">
+    <img src="{% static 'sakamoto.jfif' %}">
+    <h1>Bienvenue sur notre agence immobilière</h1>
+    <p>Nous sommes une agence immobilière spécialisée dans la vente et la location de propriétés.</p>
+</section>
+<section id="services" class="services">
+    <h2>Nos Services</h2>
+    <ul>
+        <li>Vente</li>
+        <li>Location</li>
+        <li>Gestion</li>
+    </ul>
+</section>
+<section id="proprietes">
+    <h2>Propriétés en vedette</h2>
+    <div class="properties">
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Maison familiale">
+            <h3>Maison familiale à Bordeaux</h3>
+            <p>4 chambres, 2 salles de bain, jardin, garage</p>
+            <p><strong>Prix :</strong> 420 000 €</p>
+        </div>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Appartement Paris">
+            <h3>Appartement moderne à Paris</h3>
+            <p>2 chambres, balcon, proche métro</p>
+            <p><strong>Prix :</strong> 650 000 €</p>
+        </div>
+        <div class="property-card">
+            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Villa Nice">
+            <h3>Villa avec piscine à Nice</h3>
+            <p>5 chambres, piscine, vue mer</p>
+            <p><strong>Prix :</strong> 1 200 000 €</p>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <h2>Contactez-nous</h2>
+    <form method="post" action="/contact">
+        <label for="nom">Nom :</label><br>
+        <input type="text" id="nom" name="nom" required><br><br>
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+{% endblock %}

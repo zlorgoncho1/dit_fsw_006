@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Propriétés - Agence Immobilière Excellence{% endblock %}
+
+{% block main-content %}
+<section id="proprietes">
+    <h2>{{ title }}</h2>
+    <div class="properties">
+    {% for property in properties %}
+        <div class="property-card">
+            <img src="{{ property.image }}" alt="{{ property.title }}">
+            <h3>{{ property.title }}</h3>
+            <p>{{ property.description }}</p>
+            {% if property.price > 420000 %}
+                <p><strong>Prix :</strong> <span style="color: #d32f2f; font-weight: bold; font-size: 1.1em;">{{ property.price }} €</span></p>
+            {% else %}
+                <p><strong>Prix :</strong> {{ property.price }} €</p>
+            {% endif %}
+            <a href="{% url "property_detail" property.id %}">Voir la propriété</a>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock %}

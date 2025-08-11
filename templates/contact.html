@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Agence Immobilière Excellence{% endblock %}
+
+{% block main-content %}
+<section id="contact">
+    <h2>Contactez-nous</h2>
+    <p>Vous souhaitez en savoir plus sur nos services ? N’hésitez pas à nous contacter via le formulaire ci-dessous ou par nos coordonnées.</p>
+    <div class="contact-infos">
+        <h3>Nos coordonnées</h3>
+        <ul>
+            <li><strong>Adresse :</strong> 12 rue de l’Immobilier, 75000 Paris</li>
+            <li><strong>Téléphone :</strong> 01 23 45 67 89</li>
+            <li><strong>Email :</strong> contact@agence-excellence.fr</li>
+        </ul>
+    </div>
+    <div class="contact-form">
+        <h3>Formulaire de contact</h3>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <div class="contact-map">
+        <h3>Nous trouver</h3>
+        <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=2.3408%2C48.8566%2C2.3508%2C48.8666&amp;layer=mapnik"
+            style="border:1px solid #ccc; width:100%; height:300px;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+{% endblock %}

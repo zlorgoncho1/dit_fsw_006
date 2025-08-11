@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Détail de la propriété - Agence Immobilière Excellence{% endblock %}
+
+{% block main-content %}
+<section id="property-detail">
+    <h2>{{ property.title }}</h2>
+    <div class="property-details">
+        <img src="{{ property.image }}" alt="{{ property.title }}" style="max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <p>{{ property.description }}</p>
+        <ul class="property-attributes">
+            <li><strong>Prix :</strong> <span style="color: #d32f2f; font-weight: bold; font-size: 1.1em;">{{ property.price }} €</span></li>
+            <li><strong>Surface :</strong> {{ property.surface }} m²</li>
+            <li><strong>Pièces :</strong> {{ property.rooms }}</li>
+            <li><strong>Salles de bain :</strong> {{ property.bathrooms }}</li>
+            <li><strong>Ville :</strong> {{ property.city }} ({{ property.postal_code }})</li>
+            <li><strong>Année de construction :</strong> {{ property.year_built }}</li>
+            <li><strong>Classe énergie :</strong> {{ property.energy_rating }}</li>
+            <li><strong>Garage :</strong> 
+                {% if property.garage %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </li>
+            <li><strong>Jardin :</strong> 
+                {% if property.garden %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </li>
+            {% if property.pool %}
+                <li><strong>Piscine :</strong> Oui</li>
+            {% endif %}
+            {% if property.sea_view %}
+                <li><strong>Vue mer :</strong> Oui</li>
+            {% endif %}
+            {% if property.terrace %}
+                <li><strong>Terrasse :</strong> Oui</li>
+            {% endif %}
+            {% if property.land_size %}
+                <li><strong>Terrain :</strong> {{ property.land_size }} m²</li>
+            {% endif %}
+            {% if property.fireplace %}
+                <li><strong>Cheminée :</strong> Oui</li>
+            {% endif %}
+            {% if property.mountain_view %}
+                <li><strong>Vue montagne :</strong> Oui</li>
+            {% endif %}
+            {% if property.ski_access %}
+                <li><strong>Accès ski :</strong> Oui</li>
+            {% endif %}
+            {% if property.floor %}
+                <li><strong>Étage :</strong> {{ property.floor }}</li>
+            {% endif %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
