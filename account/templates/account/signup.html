@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Inscription - Agence Immobilière Excellence{% endblock %}
+
+{% block main-content %}
+<section id="signup">
+    <h2>Inscription</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Inscription</button>
+    </form>
+</section>
+{% endblock %}

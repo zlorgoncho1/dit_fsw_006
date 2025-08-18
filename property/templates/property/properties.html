@@ -5,6 +5,7 @@
 {% block main-content %}
 <section id="proprietes">
     <h2>{{ title }}</h2>
+    <a href="{% url "create_property" %}" class="btn btn-primary">Créer une propriété</a>
     <div class="properties">
     {% for property in properties %}
         <div class="property-card">

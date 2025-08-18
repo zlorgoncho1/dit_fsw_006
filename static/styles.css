@@ -81,6 +81,45 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
 }
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-check-input {
+    margin-right: 0.5rem;
+}
+.alert {
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn-primary {
+    background: #2c3e50;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn-primary:hover {
+    background: #2c3e50;
+    color: #fff;
+}
+
 @media (max-width: 700px) {
     .properties {
         flex-direction: column;

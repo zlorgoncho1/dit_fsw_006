@@ -3,9 +3,11 @@
 
 {% block main-content %}
 <section id="welcome">
-    <img src="{% static 'sakamoto.jfif' %}">
     <h1>Bienvenue sur notre agence immobilière</h1>
     <p>Nous sommes une agence immobilière spécialisée dans la vente et la location de propriétés.</p>
+    <a href="{% url 'signup' %}">Inscription</a>
+    <a href="{% url 'login' %}">Connexion</a>
+    {% comment %} <img src="{% static 'sakamoto.jfif' %}"> {% endcomment %}
 </section>
 <section id="services" class="services">
     <h2>Nos Services</h2>
