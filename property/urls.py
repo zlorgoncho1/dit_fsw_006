@@ -20,7 +20,7 @@ from .views import *
 urlpatterns = [
     path('', welcome, name='welcome'),
     path('properties/', properties, name='properties'),
-    path('properties/create/', create_property, name='create_property'),
+    path('properties/create/', PropertyView.as_view(), name='create_property'),
     path('properties/<int:property_id>/', property_detail, name='property_detail'),
     path('services/', services, name='services'),
     path('contact/', contact, name='contact'),

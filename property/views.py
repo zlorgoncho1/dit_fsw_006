@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Property
 from .forms import PropertyForm
 from django.contrib.auth.decorators import login_required
+from django.views import View
 
 def welcome(request):
     return render(request, 'index.html')
@@ -20,20 +21,25 @@ def property_detail(request, property_id):
         return HttpResponse(f"Propriété non trouvée avec l'ID {property_id}")
 
 
-@login_required(login_url='/account/login')
-def create_property(request):
-    if request.method == 'POST':
+class PropertyView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/account/login')
+        return super().dispatch(request, *args, **kwargs)
+    
+    def get(self, request):
+        form = PropertyForm()
+        return render(request, 'property/create_property.html', context={'form': form})
+
+    def post(self, request):
         form = PropertyForm(request.POST)
         if form.is_valid(): 
             form.save()
             return redirect('properties')
-    else:
-        form = PropertyForm()
-    return render(request, 'property/create_property.html', context={'form': form})
-
-    form = PropertyForm()
-    return render(request, 'property/create_property.html', context={'form': form})
-
+        else:
+            return render(request, 'property/create_property.html', context={'form': form})
+    
+    
 def services(request):
     return render(request, 'services.html')
 

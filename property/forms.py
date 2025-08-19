@@ -6,7 +6,7 @@ class PropertyForm(forms.ModelForm):
         model = Property
         fields = ['title', 'description', 'price', 'image', 'surface', 'rooms', 'bathrooms', 'garage', 'garden', 'city']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titre du bien'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
             'image': forms.TextInput(attrs={'class': 'form-control'}),
